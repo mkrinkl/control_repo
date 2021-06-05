@@ -7,7 +7,6 @@ mod 'puppetlabs/stdlib',  '7.0.1'
 mod 'puppetlabs/concat',  '7.0.1'
 mod 'saz-locales', '2.5.1'
 mod 'puppetlabs-ntp', '9.0.1'
-mod 'puppetlabs-stdlib', '7.1.0'
 mod 'puppetlabs-motd', '6.0.0'
 
 # Modules from Git
