@@ -1,0 +1,56 @@
+---
+## Loadbalancer
+# e0049fc5161c.mylabserver.com
+
+#    NGINX
+nginx::gzip: 'on'
+nginx::gzip_disable: 'MSIE [1-6]\.(?!.*SV1)'
+nginx::gzip_proxied: any
+nginx::client_max_body_size: 100m
+nginx::service_ensure: running
+# nginx::log_format:
+#   graylog2_format: '$remote_addr - $remote_user [$time_local] "$host" "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" <msec=$msec|connection=$connection|connection_requests=$connection_requests|millis=$request_time>'
+nginx::nginx_error_log:
+  - '/var/log/nginx/error.log'
+nginx::http_access_log:
+  - '/var/log/nginx/access.log'
+nginx::worker_rlimit_nofile: 8192
+nginx::worker_processes: auto
+nginx::worker_connections: 2048
+# Defaults: keepalive_timeout: 65, client_body_timeout: 60, client_header_timeout: 60, send_timeout: 60
+nginx::client_header_timeout: 30
+nginx::client_body_timeout: 30
+nginx::keepalive_timeout: 45
+nginx::send_timeout: 30
+
+
+nginx::nginx::servers:
+  stats:
+    ensure: present
+    listen_port: 8443
+    use_default_location: no
+    locations:
+      '/nginx-status':
+      ensure: present
+      stub_status: on
+      location_cfg_append:
+        access_log: 'off'
+        allow: '127.0.0.1'
+        deny: all
+
+  'autumn.linkilee.eu':
+    ensure: present
+    server_name:
+      - autumn.linkilee.eu
+      - www.autumn.linkilee.eu
+    use_default_location: no
+    www_root: /var/tmp
+
+  'spring.linkilee.eu':
+    ensure: present
+    server_name:
+      - spring.linkilee.eu
+      - www.spring.linkilee.eu
+    use_default_location: no
+    www_root: /var/tmp
+  

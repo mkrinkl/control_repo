@@ -8,6 +8,7 @@ mod 'puppetlabs/concat',  '7.0.1'
 mod 'saz-locales', '2.5.1'
 mod 'puppetlabs-ntp', '9.0.1'
 mod 'puppetlabs-motd', '6.0.0'
+mod 'puppet-nginx', '3.1.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
