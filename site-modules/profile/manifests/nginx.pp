@@ -1,3 +1,3 @@
-class profile::example {
-
+class profile::nginx {
+  class { '::nginx': }
 }
