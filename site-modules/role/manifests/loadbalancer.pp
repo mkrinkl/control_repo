@@ -1,3 +1,3 @@
 class role::loadbalancer {
-  include profile nginx
+  contain profile nginx
 }
