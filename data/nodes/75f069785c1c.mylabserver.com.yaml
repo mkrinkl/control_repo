@@ -2,6 +2,9 @@
 ## Loadbalancer
 # 75f069785c1c.mylabserver.com
 
+classes:
+  - 'role::loadbalancer'
+
 #    NGINX
 nginx::gzip: 'on'
 nginx::gzip_disable: 'MSIE [1-6]\.(?!.*SV1)'
