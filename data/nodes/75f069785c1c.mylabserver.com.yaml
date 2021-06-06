@@ -1,6 +1,6 @@
 ---
 ## Loadbalancer
-# e0049fc5161c.mylabserver.com
+# 75f069785c1c.mylabserver.com
 
 #    NGINX
 nginx::gzip: 'on'
